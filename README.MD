@@ -11,9 +11,13 @@ multisig-контракта за одну транзакцию не могло �
 [+]    _;
 [+] }
 
-[-]     transactionId = addTransaction(destination, value, data);
-[+]     validateMaxValue(value)
-[+]     transactionId = addTransaction(destination, value, data);
+    function addTransaction(address destination, uint value, bytes data)
+        internal
+[-]        notNull(destination)
+[+]        notNull(destination)
+[+]        validateMaxValue(value)
+        returns (uint transactionId)
+    {
 ```
 
 ## Task 2
